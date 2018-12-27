@@ -8,13 +8,14 @@ var config = require('../config.json');
 
 var db;
 
-exports.DBConnectMongoose = function() {
-    return new Promise(function(resolve, reject) {
+exports.DBConnectMongoose = function () {
+    return new Promise(function (resolve, reject) {
         mongoose.Promise = global.Promise;
 
         if (db) {
             return resolve(db);
         }
+
 
         // database connect
         mongoose.connect('mongodb://' + config.db_config.host + ":" + config.db_config.port + "/" + config.db_config.name)
